@@ -11,9 +11,11 @@
 **********************************************************************
 '''
 
-import smbus
-import time
 import math
+import time
+
+import smbus
+
 
 class PWM(object):
     """A PWM control class for PCA9685."""
@@ -78,6 +80,7 @@ class PWM(object):
             f = open('/proc/cpuinfo','r')
             for line in f:
                 if line.startswith('Revision'):
+                    print(line)
                     if line[11:-1] in self.RPI_REVISION_0:
                         return '0'
                     elif line[11:-1] in self.RPI_REVISION_1_MODULE_B:
